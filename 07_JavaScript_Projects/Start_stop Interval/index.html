@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 projects with Async JS</title>
+</head>
+<body>
+    <h1>CHAI AUR JAVASCRIPT</h1>
+    <button id="start">START</button>
+    <button id="stop">STOP</button>
+</body>
+<script>
+    
+    let intervalID;
+
+    const startLoop = function(){
+        intervalID = setInterval(printData, 1000)
+        function printData(){
+            console.log("Hitesh", Date.now())
+        };
+        console.log("Start Button Clicked");
+    }
+
+
+    const stopDate = function(){
+        clearInterval(intervalID);
+        intervalID = null;
+        console.log("Stop Button Clicked");
+        
+    }
+
+    document.querySelector('#start').addEventListener('click', startLoop);
+    document.querySelector('#stop').addEventListener('click', stopDate);
+    
+</script>
+</html>
