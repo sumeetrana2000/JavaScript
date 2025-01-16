@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 projects with Async JS</title>
+</head>
+<body>
+    <h1>CHAI AUR JAVASCRIPT</h1>
+    <button id="start">START</button>
+    <button id="stop">STOP</button>
+</body>
+<script>
+    
+
+    function getRandomHexColor() {
+    // Generate a random number between 0 and 16777215 (0xFFFFFF in hexadecimal)
+        const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        return `#${randomColor.padStart(6, '0')}`;
+    }
+
+    let intervalID;
+
+    const startLoop = function(){
+
+        if(!intervalID){
+            intervalID = setInterval(changeByColour, 1000)   
+        }
+        function changeByColour(){
+            document.body.style.backgroundColor = getRandomHexColor();
+        }
+        console.log("Start Button Clicked");
+    };
+
+
+    const stopLoop = function(){
+        clearInterval(intervalID);
+        intervalID = null;
+        console.log("Stop Button Clicked");
+    };
+
+    document.querySelector('#start').addEventListener('click', startLoop);
+    document.querySelector('#stop').addEventListener('click', stopLoop);
+    
+</script>
+</html>
